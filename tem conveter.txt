@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temparture Converter</title>
+    <style>
+      *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+      }
+      body{
+        padding: 50px 100px;
+      }
+      h1{
+        text-align: center;
+        padding-bottom: 30px;
+        text-decoration: underline;
+      }
+      .container{
+        background-color:#A2D2FF;
+        border-radius: 15px;
+        text-align: center;
+        padding: 50px;
+        margin-top: 10px;
+      }
+      .input_div{
+        display: inline-block;
+        font-size: 25px;
+      }
+    .inp{
+      margin: 25px;
+      padding: 5px 10px;
+      font-size: 30px;
+      font-family: bold;
+      width: 250px;
+      text-align: center;
+    
+    }
+    input{
+      font-weight: bold;
+    }
+    #equal{
+      display: inline-block;
+      font-size: 35px;
+      font-weight: bolder;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Temparture Converter</h1>
+    <div class="container">
+      <div class="input_div">
+        <label>Celsius</label><br>
+        <input type="number" value="0" id="cel" class="inp">
+      </div>
+      <p id="equal">=</p>
+      <div class="input_div">
+        <label>Farhenhit</label><br>
+        <input type="number" value="32" id="fah" class="inp">
+      </div>
+    </div>
+    <script>
+      var cel=document.getElementById("cel");
+      var fah = document.getElementById("fah"); 
+      cel.addEventListener('input',function(){
+        let c = this.value;
+        let f = (c * 9/5) + 32 ;
+        if(!Number.isInteger(f)){
+          f = f.toFixed(4);
+        }
+        fah.value= f;
+
+      });
+      fah.addEventListener("input",function(){
+        console.log("fah change");
+        let f = this .value;
+        let c =(f - 32) * 5/9 ;
+        if(!Number.isInteger(c)){
+          c = c.toFixed(4);
+        }
+        cel.value= c;
+      });
+
+
+    </script>
+  </body>
+</html>
